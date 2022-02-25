@@ -1,0 +1,291 @@
+/* jQuery and flex boxes 2021 */
+/* Write the rules of style in an orderly and optimal way */
+/* importar fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Shizuru&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap');
+
+/* border box y quitar margen y padding */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* object fit cover */
+img {
+  object-fit: contain;
+}
+
+/* establecer fuente */
+html {
+  font-size: 16px;
+  font-family: 'Shizuru', cursive;
+}
+
+/* hacer grid el main y el body */
+body, main {
+  display: grid;
+}
+
+/* hacer flex */
+header, nav, main section{
+  display: flex;
+}
+
+header {
+  padding: 7.5px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1c1c1c;
+  color: white;
+}
+
+nav {
+  background-color: white;
+}
+
+body > main > section:nth-child(2) {
+  background-color: orange;
+}
+
+header img {
+  height: 80px;
+  width: 100px;
+  
+}
+
+/* Animación */
+
+body > header > img:nth-child(1){
+  animation: animacion 2s;
+}
+
+
+@keyframes animacion {
+  from {
+    /* cambio de tamanyo y opacidad */
+    height: 40px;
+    width: 50px;
+    opacity: 0;
+  }
+  to {
+    height: 80px;
+    width: 100px;
+
+    opacity: 1;
+   
+  }
+}
+
+/* --- */
+
+nav {
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 15px 0;
+}
+
+nav a {
+  width: 100%;
+  padding: 15px;
+  margin: 0px 10px;
+  text-align: center;
+  text-decoration: none;
+  background-color: rebeccapurple;
+  color: white;
+
+}
+
+/* --- */
+
+main {
+  background-color: white;
+}
+
+main section {
+  flex: 1;
+  
+  padding: 10px;
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: justify;
+  
+  font-size: 15px;
+  background-color: #1c1c1c;
+}
+
+
+
+section {
+  color: white;
+}
+
+main section h2 {
+  margin: 7.5px;
+  
+  text-align: center;
+  
+}
+
+body > main > section:nth-child(2) {
+  background-color: orange;
+}
+
+main > section > p:nth-child(3) {
+  margin-top: 15px;
+}
+
+main section a { 
+  width: 150px;
+  margin: 15px auto;
+  padding: 7.5px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+
+
+section div {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 100%;
+  width: 100%;
+
+  display: none;
+}
+
+section div img {
+  height: 100%;
+  width: 100%;
+}
+
+section div button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+section div button img {
+  height: 25px;
+  width: 25px;
+}
+
+/* --- */
+
+footer {
+  padding: 15px 10px;
+
+  color: white;
+  background-color: black;
+}
+
+/* aplico flotantes */
+
+footer::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+footer h3:first-child {
+  float: left;
+}
+
+footer h3:last-child {
+  float: right;
+}
+
+/* media queris */
+
+@media only screen and (min-width: 800px) {
+  html {
+    font-size: 15px;
+  }
+
+  body {
+    height: 100vh;
+    grid-template-rows: 0.75fr 0.5fr 5fr 0.25fr;
+  }
+
+ 
+
+  main section:first-child {
+    grid-area: madrid;
+  }
+
+  main section:nth-child(2) {
+    grid-area: paris;
+  }
+
+  main section:last-child {
+    grid-area: london;
+  }
+
+  main {
+    grid-template-areas:
+      "madrid paris"
+      "london london";
+
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+ 
+  header {
+    grid-area: header;
+  }
+
+  header img {
+    height: 120px;
+    width: 140px;
+  }
+
+  nav {
+    grid-area: nav;
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  main section:nth-child(3) {
+    margin-right: 25px;
+  }
+
+  footer {
+    grid-area: footer;
+  }
+
+  body {
+    grid-template-columns: 0.2fr 1fr;
+    grid-template-rows: 0.75fr 5fr 0.25fr;
+    grid-template-areas:
+      "header header"
+      "nav main"
+      "footer footer";
+  }
+
+  nav {
+    flex-direction: column;
+
+    padding: 20px;
+  }
+
+  nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 20px 0px;
+
+    font-size: 17px;
+  }
+
+  main {
+    grid-template-areas: "madrid paris london";
+  }
+}
